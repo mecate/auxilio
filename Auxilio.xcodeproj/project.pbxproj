@@ -15,6 +15,7 @@
 		D1D853211B6924D700BFA824 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D853201B6924D700BFA824 /* Images.xcassets */; };
 		D1D853241B6924D700BFA824 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D853221B6924D700BFA824 /* LaunchScreen.xib */; };
 		D1D853301B6924D700BFA824 /* AuxilioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D8532F1B6924D700BFA824 /* AuxilioTests.m */; };
+		D1D8533E1B693EB400BFA824 /* video_children.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = D1D8533D1B693EB400BFA824 /* video_children.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		D1D853291B6924D700BFA824 /* AuxilioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuxilioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D8532E1B6924D700BFA824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D8532F1B6924D700BFA824 /* AuxilioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuxilioTests.m; sourceTree = "<group>"; };
+		D1D8533D1B693EB400BFA824 /* video_children.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video_children.mp4; path = videos/video_children.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		D1D853101B6924D700BFA824 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D1D8533F1B693EC400BFA824 /* videos */,
 				D1D853111B6924D700BFA824 /* Info.plist */,
 				D1D853121B6924D700BFA824 /* main.m */,
 			);
@@ -152,6 +155,14 @@
 			children = (
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		D1D8533F1B693EC400BFA824 /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				D1D8533D1B693EB400BFA824 /* video_children.mp4 */,
+			);
+			name = videos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D8533E1B693EB400BFA824 /* video_children.mp4 in Resources */,
 				D1D8531F1B6924D700BFA824 /* Main.storyboard in Resources */,
 				D1D853241B6924D700BFA824 /* LaunchScreen.xib in Resources */,
 				D1D853211B6924D700BFA824 /* Images.xcassets in Resources */,
