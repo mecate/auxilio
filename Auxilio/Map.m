@@ -10,8 +10,6 @@
 #import "Start.h"
 @import GoogleMaps;
 
-static int  iLocalizeState = nLocalizing;
-
 @interface Map () {
 GMSMapView          *mapView;
 GMSMarker           *markerLocation;
@@ -27,15 +25,8 @@ GMSCameraPosition   *camera;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initController];
-    
-    //Location
-    self.locationManager                    = [[CLLocationManager alloc] init];
-    self.locationManager.delegate           = self;
-    self.location                           = [[CLLocation alloc] init];
-    self.locationManager.desiredAccuracy    = kCLLocationAccuracyBest;
-    [self.locationManager  requestWhenInUseAuthorization];
-    [self.locationManager startUpdatingLocation];
-    
+    [self paintMap];
+    [self paintMarker];
     //[self initPlaces];
 }
 //-------------------------------------------------------------------------------
@@ -91,38 +82,6 @@ GMSCameraPosition   *camera;
         markerLocation.appearAnimation  = kGMSMarkerAnimationPop;
         markerLocation.map              = mapView;
     }*/
-}
-/**********************************************************************************************/
-#pragma mark - Localization
-/**********************************************************************************************/
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    self.location = locations.lastObject;
-    NSLog(@"didUpdateLocation!");
-    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
-    [geoCoder reverseGeocodeLocation:self.locationManager.location completionHandler:^(NSArray *placemarks, NSError *error) {
-        for (CLPlacemark *placemark in placemarks) {
-            NSString *addressName = [placemark name];
-            NSString *city = [placemark locality];
-            NSString *administrativeArea = [placemark administrativeArea];
-            NSString *country  = [placemark country];
-            NSString *countryCode = [placemark ISOcountryCode];
-            NSLog(@"name is %@ and locality is %@ and administrative area is %@ and country is %@ and country code %@", addressName, city, administrativeArea, country, countryCode);
-            /*self.lblCountry.text = country;
-            self.lblName.text = addressName;
-            self.lblName.adjustsFontSizeToFitWidth = YES;*/
-        }
-        
-        mlatitude = self.locationManager.location.coordinate.latitude;
-        mlongitude = self.locationManager.location.coordinate.longitude;
-        NSLog(@"mlatitude = %f", mlatitude);
-        NSLog(@"mlongitude = %f", mlongitude);
-        if (iLocalizeState == nLocalizing) {
-            [self paintMap];
-            [self paintMarker];
-            iLocalizeState = nLocalized;
-        }
-    }];
-    
 }
 
 @end

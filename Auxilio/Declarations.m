@@ -9,8 +9,10 @@
 #import "Declarations.h"
 
 //Localization variables
-float                   mlatitude;
-float                   mlongitude;
+float       mlatitude;
+float       mlongitude;
+
+int         miLocalizeState     = nLocalizing;
 
 @implementation Declarations
 

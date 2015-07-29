@@ -33,6 +33,14 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    //Location
+    self.locationManager                    = [[CLLocationManager alloc] init];
+    self.locationManager.delegate           = self;
+    self.location                           = [[CLLocation alloc] init];
+    self.locationManager.desiredAccuracy    = kCLLocationAccuracyBest;
+    [self.locationManager  requestWhenInUseAuthorization];
+    [self.locationManager startUpdatingLocation];
+    
     self.lblSettings.layer.borderColor  = [UIColor whiteColor].CGColor;
     self.lblSettings.layer.borderWidth  = 1;
     self.lblSettings.clipsToBounds      = YES;
@@ -72,5 +80,35 @@
 - (IBAction)btnStartPressed:(id)sender {
     UITabBarController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TabBarMap"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+/**********************************************************************************************/
+#pragma mark - Localization
+/**********************************************************************************************/
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    self.location = locations.lastObject;
+    NSLog(@"didUpdateLocation!");
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:self.locationManager.location completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *placemark in placemarks) {
+            NSString *addressName = [placemark name];
+            NSString *city = [placemark locality];
+            NSString *administrativeArea = [placemark administrativeArea];
+            NSString *country  = [placemark country];
+            NSString *countryCode = [placemark ISOcountryCode];
+            NSLog(@"name is %@ and locality is %@ and administrative area is %@ and country is %@ and country code %@", addressName, city, administrativeArea, country, countryCode);
+            /*self.lblCountry.text = country;
+             self.lblName.text = addressName;
+             self.lblName.adjustsFontSizeToFitWidth = YES;*/
+        }
+        
+        mlatitude = self.locationManager.location.coordinate.latitude;
+        mlongitude = self.locationManager.location.coordinate.longitude;
+        NSLog(@"mlatitude = %f", mlatitude);
+        NSLog(@"mlongitude = %f", mlongitude);
+        if (miLocalizeState == nLocalizing) {
+            miLocalizeState = nLocalized;
+        }
+    }];
+    
 }
 @end

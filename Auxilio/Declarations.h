@@ -17,7 +17,7 @@
 //Localization variables
 extern float    mlatitude;
 extern float    mlongitude;
-
+extern int      miLocalizeState;
 @interface Declarations : NSObject
 
 @end
