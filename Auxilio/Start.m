@@ -7,6 +7,7 @@
 //
 
 #import "Start.h"
+#import "Map.h"
 
 @interface Start ()
 
@@ -65,10 +66,11 @@
 /**********************************************************************************************/
 #pragma mark - Action methods
 /**********************************************************************************************/
-
 - (IBAction)btnSettingsPressed:(id)sender {
 }
-
+//-------------------------------------------------------------------------------
 - (IBAction)btnStartPressed:(id)sender {
+    UITabBarController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TabBarMap"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 @end
