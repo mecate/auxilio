@@ -8,9 +8,14 @@
 
 #import "AppDelegate.h"
 @import GoogleMaps;
+#import <Pushwoosh/PushNotificationManager.h>
 
-@interface AppDelegate ()
+#define LOCATIONS_FILE @"PWLocationTracking"
+#define LOCATIONS_FILE_TYPE @"log"
 
+@interface AppDelegate ()<PushNotificationDelegate> {
+    PushNotificationManager *pushManager;
+}
 @end
 
 @implementation AppDelegate
@@ -19,6 +24,33 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyAlycTKaHylSFEF24_C15XnF_o7hn-u7GY"];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        // use registerUserNotificationSettings
+        // iOS 8 Notifications
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        
+        [application registerForRemoteNotifications];
+    } else
+    {
+        // use registerForRemoteNotifications
+    }
+#else
+    // use registerForRemoteNotifications
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+#endif
+    
+    pushManager = [PushNotificationManager pushManager];
+    pushManager.delegate = self;
+    [pushManager handlePushReceived:launchOptions];
+    
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]) {
+        
+        [pushManager startLocationTracking];
+    }
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
     return YES;
 }
 
@@ -125,5 +157,34 @@
         }
     }
 }
+/**********************************************************************************************/
+#pragma mark - Push Notification Manager
+/**********************************************************************************************/
+- (void)onDidRegisterForRemoteNotificationsWithDeviceToken:(NSString *)token {
+    print(NSLog(@"Registered with push token: %@", token))
+}
+//-------------------------------------------------------------------------------
+- (void)onDidFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    print(NSLog(@"Failed to register: %@", [error description]))
+}
+//-------------------------------------------------------------------------------
+- (void)onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification {
+    [PushNotificationManager clearNotificationCenter];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    print(NSLog(@"Received push notification: %@", pushNotification))
+}
+//-------------------------------------------------------------------------------
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [pushManager handlePushReceived:userInfo];
+}
+//-------------------------------------------------------------------------------
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
+    [pushManager handlePushRegistration:deviceToken];
+    print(NSLog(@"didRegisterForRemoteNotificationsWithDeviceToken: %@", deviceToken))
+    NSString *mstUserPushToken   = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    mstUserPushToken   = [mstUserPushToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    print(NSLog(@"mstrUserPushToken %@", mstUserPushToken))
+}
+
 
 @end

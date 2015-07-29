@@ -40,5 +40,9 @@
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Tu ubicación es requerida para el funcionamiento de esta app</string>
+	<key>Pushwoosh_APPID</key>
+	<string>F4C8C-8FF40</string>
+	<key>Pushwoosh_AUTO</key>
+	<false/>
 </dict>
 </plist>

@@ -10,6 +10,10 @@
 #define         nLocalizing     0
 #define         nLocalized      1
 
+//Debug
+#define nDebugEnable        1
+#define print(x)            if(nDebugEnable){(x);}
+
 //Localization variables
 extern float    mlatitude;
 extern float    mlongitude;
