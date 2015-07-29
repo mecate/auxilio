@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BBC4D060367BBA460FD1B93 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F359EB86831146B83657201 /* libPods.a */; };
+		D11F1DA81B697F0E008D3833 /* Declarations.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F1DA71B697F0E008D3833 /* Declarations.m */; };
 		D1D853131B6924D700BFA824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D853121B6924D700BFA824 /* main.m */; };
 		D1D853161B6924D700BFA824 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D853151B6924D700BFA824 /* AppDelegate.m */; };
 		D1D853191B6924D700BFA824 /* Auxilio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1D853171B6924D700BFA824 /* Auxilio.xcdatamodeld */; };
@@ -35,6 +36,8 @@
 /* Begin PBXFileReference section */
 		1F359EB86831146B83657201 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		29093B570FA26113C04D9638 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Auxilio/Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D11F1DA61B697F0E008D3833 /* Declarations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Declarations.h; sourceTree = "<group>"; };
+		D11F1DA71B697F0E008D3833 /* Declarations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Declarations.m; sourceTree = "<group>"; };
 		D1D8530D1B6924D700BFA824 /* Auxilio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auxilio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D853111B6924D700BFA824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D853121B6924D700BFA824 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 			children = (
 				D1D853141B6924D700BFA824 /* AppDelegate.h */,
 				D1D853151B6924D700BFA824 /* AppDelegate.m */,
+				D11F1DA61B697F0E008D3833 /* Declarations.h */,
+				D11F1DA71B697F0E008D3833 /* Declarations.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			files = (
 				D1D853191B6924D700BFA824 /* Auxilio.xcdatamodeld in Sources */,
 				D1D853421B694D8E00BFA824 /* Map.m in Sources */,
+				D11F1DA81B697F0E008D3833 /* Declarations.m in Sources */,
 				D1D853161B6924D700BFA824 /* AppDelegate.m in Sources */,
 				D1D8531C1B6924D700BFA824 /* Start.m in Sources */,
 				D1D853131B6924D700BFA824 /* main.m in Sources */,

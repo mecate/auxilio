@@ -38,5 +38,7 @@
 	<true/>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Tu ubicación es requerida para el funcionamiento de esta app</string>
 </dict>
 </plist>

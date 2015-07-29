@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Declarations.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface Map : UIViewController
+@interface Map : UIViewController<CLLocationManagerDelegate>
 //Objects
+@property (strong, nonatomic)   CLLocationManager   *locationManager;
+@property (strong, nonatomic)   CLLocation          *location;
 
 //Actions
 - (IBAction)btnMenuPressed:(id)sender;
