@@ -22,6 +22,13 @@ NSString    *mstNotificationMessage;
 //User
 NSString    *mstUserName;
 
+NSString    *mstNotificationUserName;
+NSString    *mstNotificationStatus;
+NSString    *mstNotificationLatitude;
+NSString    *mstNotificationLongitude;
+NSString    *mstNotificationDate;
+NSString    *mstNotificationStatus;
+
 @implementation Declarations
 
 /**********************************************************************************************/
@@ -55,7 +62,7 @@ NSString    *mstUserName;
     return [self sendPost:([nURLServer stringByAppendingString:nURLCreateMessage]) forData:stData andMode:nPOST];
 }
 //-------------------------------------------------------------------------------
-+ (NSDictionary *)sendCustomNotification:(NSString *)notificationMessage {
++ (NSDictionary *)sendCustomNotification:(NSString *)notificationMessage andStatus:(NSString *)status {
     print(NSLog(@"getAllTeams"))
     NSMutableDictionary *diData = [[NSMutableDictionary alloc]init];
     NSString    *stApplication  = @"F4C8C-8FF40";
@@ -73,6 +80,18 @@ NSString    *mstUserName;
     stCustomMsg                             = [stCustomMsg stringByAppendingString:stLatitude];
     stCustomMsg                             = [stCustomMsg stringByAppendingString:@","];
     stCustomMsg                             = [stCustomMsg stringByAppendingString:stLongitude];
+    
+    //Add current time/date
+    NSDate *currentTime = [NSDate date];
+    NSDateFormatter *dateFormatter          = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MMM-yyyy HH:mm"];
+    NSString *stDate                        = [dateFormatter stringFromDate: currentTime];
+    stCustomMsg                             = [stCustomMsg stringByAppendingString:@","];
+    stCustomMsg                             = [stCustomMsg stringByAppendingString:stDate];
+    
+    //Add status
+    stCustomMsg                             = [stCustomMsg stringByAppendingString:@","];
+    stCustomMsg                             = [stCustomMsg stringByAppendingString:status];
     
     [diCustomData setValue:stCustomMsg forKey:@"custom"];
     

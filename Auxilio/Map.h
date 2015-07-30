@@ -15,6 +15,14 @@
 //Objects
 @property (strong, nonatomic)   CLLocationManager   *locationManager;
 @property (strong, nonatomic)   CLLocation          *location;
+@property (strong, nonatomic) IBOutlet UIView *vUser;
+@property (strong, nonatomic) IBOutlet UIImageView *imgUser;
+@property (strong, nonatomic) IBOutlet UIView *vData;
+@property (strong, nonatomic) IBOutlet UILabel *lblName;
+@property (strong, nonatomic) IBOutlet UILabel *lblTime;
+@property (strong, nonatomic) IBOutlet UILabel *lblStatus;
+
+
 
 //Actions
 - (IBAction)btnMenuPressed:(id)sender;

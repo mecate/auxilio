@@ -194,6 +194,14 @@
     NSRange rSub                = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
     NSString *stParsedMessage   = [stMessage substringWithRange:rSub];
     print(NSLog(@"stParsedMessage: %@", stParsedMessage))
+    
+    NSArray *items = [stParsedMessage componentsSeparatedByString:@","];
+    mstNotificationUserName     = [items objectAtIndex:0];
+    mstNotificationLatitude     = [items objectAtIndex:1];
+    mstNotificationLongitude    = [items objectAtIndex:2];
+    mstNotificationDate         = [items objectAtIndex:3];
+    mstNotificationStatus       = [items objectAtIndex:4];
+    
     return stParsedMessage;
 }
 //-------------------------------------------------------------------------------

@@ -29,7 +29,14 @@ extern NSString *mstNotificationMessage;
 //User
 extern NSString *mstUserName;
 
+extern NSString *mstNotificationUserName;
+extern NSString *mstNotificationStatus;
+extern NSString *mstNotificationLatitude;
+extern NSString *mstNotificationLongitude;
+extern NSString *mstNotificationDate;
+extern NSString *mstNotificationStatus;
+
 @interface Declarations : NSObject
 + (NSDictionary *)sendNotification;
-+ (NSDictionary *)sendCustomNotification:(NSString *)notificationMessage;
++ (NSDictionary *)sendCustomNotification:(NSString *)notificationMessage andStatus:(NSString *)status;
 @end

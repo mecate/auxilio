@@ -47,6 +47,7 @@
 		D11F1E0C1B699437008D3833 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F1DFF1B699437008D3833 /* SBJsonUTF8Stream.m */; };
 		D11F1E0D1B699437008D3833 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = D11F1E011B699437008D3833 /* SBJsonWriter.m */; };
 		D1D324B71B6A908F004E026D /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D324B61B6A908F004E026D /* Simulation.m */; };
+		D1D324BA1B6A9EB4004E026D /* userDummy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1D324B91B6A9EB4004E026D /* userDummy.jpg */; };
 		D1D853131B6924D700BFA824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D853121B6924D700BFA824 /* main.m */; };
 		D1D853161B6924D700BFA824 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D853151B6924D700BFA824 /* AppDelegate.m */; };
 		D1D853191B6924D700BFA824 /* Auxilio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1D853171B6924D700BFA824 /* Auxilio.xcdatamodeld */; };
@@ -128,6 +129,7 @@
 		D11F1E011B699437008D3833 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		D1D324B51B6A908F004E026D /* Simulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Simulation.h; sourceTree = "<group>"; };
 		D1D324B61B6A908F004E026D /* Simulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Simulation.m; sourceTree = "<group>"; };
+		D1D324B91B6A9EB4004E026D /* userDummy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userDummy.jpg; sourceTree = "<group>"; };
 		D1D8530D1B6924D700BFA824 /* Auxilio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auxilio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D853111B6924D700BFA824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D853121B6924D700BFA824 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -307,6 +309,22 @@
 			path = json;
 			sourceTree = "<group>";
 		};
+		D1D324B81B6A9EA3004E026D /* users */ = {
+			isa = PBXGroup;
+			children = (
+				D1D324B91B6A9EB4004E026D /* userDummy.jpg */,
+			);
+			name = users;
+			sourceTree = "<group>";
+		};
+		D1D324BB1B6A9EB9004E026D /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				D1D853441B6950EB00BFA824 /* ic_back.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 		D1D853041B6924D700BFA824 = {
 			isa = PBXGroup;
 			children = (
@@ -423,7 +441,8 @@
 		D1D853431B6950EB00BFA824 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
-				D1D853441B6950EB00BFA824 /* ic_back.png */,
+				D1D324BB1B6A9EB9004E026D /* icons */,
+				D1D324B81B6A9EA3004E026D /* users */,
 			);
 			path = imgs;
 			sourceTree = "<group>";
@@ -536,6 +555,7 @@
 				D11F1DE31B6981E5008D3833 /* PushNotificationDelegate.html in Resources */,
 				D1D853241B6924D700BFA824 /* LaunchScreen.xib in Resources */,
 				D1D853211B6924D700BFA824 /* Images.xcassets in Resources */,
+				D1D324BA1B6A9EB4004E026D /* userDummy.jpg in Resources */,
 				D11F1DDA1B6981E5008D3833 /* styles.css in Resources */,
 				D11F1DD11B6981E5008D3833 /* PWNetworkOperation.html in Resources */,
 				D11F1DD01B6981E5008D3833 /* PWNetworkEngine.html in Resources */,

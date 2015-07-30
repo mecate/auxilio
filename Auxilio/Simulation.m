@@ -113,7 +113,7 @@ GMSCameraPosition   *camera;
 /**********************************************************************************************/
 -(void)opSendHelp {
     print(NSLog(@"opSendHelp"))
-    [Declarations sendCustomNotification:@" needs help!"];
+    [Declarations sendCustomNotification:@" needs help!" andStatus:@"HELP"];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.vLoading.hidden = YES;
     });
@@ -121,7 +121,7 @@ GMSCameraPosition   *camera;
 //------------------------------------------------------------
 -(void)opSendOK {
     print(NSLog(@"opSendOK"))
-    [Declarations sendCustomNotification:@" is now save"];
+    [Declarations sendCustomNotification:@" is now save" andStatus:@"OK"];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.vLoading.hidden = YES;
     });

@@ -24,8 +24,6 @@ GMSCameraPosition   *camera;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initController];
-    [self paintMap];
-    [self paintMarker];
     //[self initPlaces];
 }
 //-------------------------------------------------------------------------------
@@ -39,6 +37,16 @@ GMSCameraPosition   *camera;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotificationReceived) name:@"NotificationReceived" object:nil];
+    
+    self.imgUser.layer.borderColor     = [UIColor clearColor].CGColor;
+    self.imgUser.layer.borderWidth     = 1;
+    self.imgUser.clipsToBounds         = YES;
+    self.imgUser.layer.cornerRadius    = 40;
+    
+    self.vData.layer.borderColor     = [UIColor clearColor].CGColor;
+    self.vData.layer.borderWidth     = 1;
+    self.vData.clipsToBounds         = YES;
+    self.vData.layer.cornerRadius    = 8;
 }
 //-------------------------------------------------------------------------------
 - (IBAction)btnMenuPressed:(id)sender {
@@ -48,6 +56,19 @@ GMSCameraPosition   *camera;
 //-------------------------------------------------------------------------------
 -(void)didNotificationReceived {
     print(NSLog(@"didNotificationReceivedInMaps"))
+    [self paintMap];
+    [self paintMarker];
+    self.lblName.text       = mstNotificationUserName;
+    self.lblTime.text       = mstNotificationDate;
+    self.lblStatus.text     = mstNotificationStatus;
+    
+    if ([mstNotificationStatus isEqual:@"OK"]) {
+        self.lblStatus.textColor = [UIColor greenColor];
+    }
+    else {
+        self.lblStatus.textColor = [UIColor redColor];
+    }
+    self.vUser.hidden       = NO;
 }
 //-------------------------------------------------------------------------------
 - (void) onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification {
@@ -58,20 +79,23 @@ GMSCameraPosition   *camera;
 /**********************************************************************************************/
 - (void) paintMap {
     [mapView removeFromSuperview];
-    camera                      = [GMSCameraPosition cameraWithLatitude:mlatitude longitude:mlongitude zoom:14.0];
+    float latitude  = [mstNotificationLatitude floatValue];
+    float longitude = [mstNotificationLongitude floatValue];
+
+    camera                      = [GMSCameraPosition cameraWithLatitude:latitude longitude:longitude zoom:14.0];
     mapView                     = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.frame               = CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-50);
     mapView.myLocationEnabled   = YES;
     
     [self.view addSubview:mapView];
-    //[self.view bringSubviewToFront:self.lblName];
+    [self.view bringSubviewToFront:self.vUser];
     //[self.view bringSubviewToFront:self.lblCountry];
 }
 //------------------------------------------------------------
 - (void) paintMarker {
     GMSMarker *marker       = [[GMSMarker alloc] init];
     marker.position         = camera.target;
-    marker.title            = @"My child: Walter Jr.";
+    marker.title            = mstNotificationUserName;
     marker.snippet          = @"Status: OK";
     marker.appearAnimation  = kGMSMarkerAnimationPop;
     marker.map = mapView;

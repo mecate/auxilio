@@ -92,7 +92,7 @@
             </objects>
             <point key="canvasLocation" x="269.33333333333331" y="348.37333333333333"/>
         </scene>
-        <!--Children-->
+        <!--Simulation-->
         <scene sceneID="Raq-XF-eQV">
             <objects>
                 <viewController id="eht-EJ-qve" customClass="Simulation" sceneMemberID="viewController">
@@ -129,10 +129,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.43529411759999997" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulated Status: OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M0W-NU-kM4" userLabel="lblStatus">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulated Status: OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M0W-NU-kM4" userLabel="lblStatus">
                                 <rect key="frame" x="20" y="80" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.41568627953529358" green="0.78823530673980713" blue="0.047058824449777603" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Medium" family="Kohinoor Devanagari" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -189,7 +189,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Children" id="Sa3-Ej-UWf"/>
+                    <tabBarItem key="tabBarItem" title="Simulation" id="Sa3-Ej-UWf"/>
                     <connections>
                         <outlet property="lblStatus" destination="M0W-NU-kM4" id="NhM-tM-ASJ"/>
                         <outlet property="vActivityIndicator" destination="FEb-6w-24s" id="pXt-qG-RbE"/>
@@ -202,7 +202,7 @@
             </objects>
             <point key="canvasLocation" x="1178" y="663"/>
         </scene>
-        <!--Parents-->
+        <!--Help monitor-->
         <scene sceneID="VSr-VF-lrr">
             <objects>
                 <viewController storyboardIdentifier="Map" id="e2a-IH-ecj" customClass="Map" sceneMemberID="viewController">
@@ -218,7 +218,7 @@
                                         <rect key="frame" x="8" y="24" width="24" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search my children" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jQx-d0-zdF" userLabel="lblTitle">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help monitor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jQx-d0-zdF" userLabel="lblTitle">
                                         <rect key="frame" x="60" y="22" width="200" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="19"/>
@@ -238,11 +238,70 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.32549019610000002" green="0.43529411759999997" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="lZ1-4F-lO5" userLabel="vUser">
+                                <rect key="frame" x="0.0" y="68" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view alpha="0.75" contentMode="scaleToFill" id="JEb-CO-D7A" userLabel="vData">
+                                        <rect key="frame" x="104" y="8" width="200" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userDummy.jpg" id="ofm-7v-sml" userLabel="imgUser">
+                                        <rect key="frame" x="16" y="10" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Walter Gonzalez" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5xa-TT-K1N" userLabel="lblName">
+                                        <rect key="frame" x="122" y="13" width="164" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorDevanagari-Book" family="Kohinoor Devanagari" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last updated:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6xL-nh-awA" userLabel="lblTitle1">
+                                        <rect key="frame" x="122" y="32" width="164" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="12"/>
+                                        <color key="textColor" red="1" green="0.82352942230000004" blue="0.019607843829999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 sept - 16:35 hrs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gF6-wx-OmK" userLabel="lblTime">
+                                        <rect key="frame" x="122" y="49" width="164" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X8r-JH-MkB" userLabel="lblStatus">
+                                        <rect key="frame" x="122" y="68" width="164" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorDevanagari-Medium" family="Kohinoor Devanagari" pointSize="14"/>
+                                        <color key="textColor" red="0.85098040100000005" green="0.29019609089999998" blue="0.21960784489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No info to show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FBK-BJ-8BO" userLabel="lblNoInfo">
+                                <rect key="frame" x="60" y="269" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="19"/>
+                                <color key="textColor" red="0.16945379972457886" green="0.17271937429904938" blue="0.1693689376115799" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Parents" id="Rqd-nH-WL6"/>
+                    <tabBarItem key="tabBarItem" title="Help monitor" id="Rqd-nH-WL6"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="imgUser" destination="ofm-7v-sml" id="8zP-XA-ah1"/>
+                        <outlet property="lblName" destination="5xa-TT-K1N" id="ntY-Vp-AXX"/>
+                        <outlet property="lblStatus" destination="X8r-JH-MkB" id="Sjc-Tm-RPL"/>
+                        <outlet property="lblTime" destination="gF6-wx-OmK" id="cLZ-aG-5u3"/>
+                        <outlet property="vData" destination="JEb-CO-D7A" id="3kM-dp-u3B"/>
+                        <outlet property="vUser" destination="lZ1-4F-lO5" id="QAu-lU-Ti2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RtZ-py-Bkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -271,6 +330,7 @@
     </scenes>
     <resources>
         <image name="ic_back.png" width="34" height="63"/>
+        <image name="userDummy.jpg" width="400" height="400"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
