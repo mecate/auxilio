@@ -50,6 +50,8 @@
     self.lblStart.layer.borderWidth     = 1;
     self.lblStart.clipsToBounds         = YES;
     self.lblStart.layer.cornerRadius    = 8;
+    
+    NSDictionary *dict = [Declarations sendNotification];
 }
 /**********************************************************************************************/
 #pragma mark - Video method

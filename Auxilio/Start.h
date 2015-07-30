@@ -10,9 +10,12 @@
 #import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Declarations.h"
+
 
 @interface Start : UIViewController<CLLocationManagerDelegate>
 //Objects
+@property (nonatomic,strong)  Declarations              *Declarations;
 @property (strong, nonatomic) CLLocationManager         *locationManager;
 @property (strong, nonatomic) CLLocation                *location;
 @property (strong, nonatomic) MPMoviePlayerController   *moviePlayer;
