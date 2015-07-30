@@ -26,4 +26,5 @@ extern float    mlongitude;
 extern int      miLocalizeState;
 @interface Declarations : NSObject
 + (NSDictionary *)sendNotification;
++ (NSDictionary *)sendCustomNotification;
 @end

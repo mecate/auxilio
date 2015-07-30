@@ -176,6 +176,7 @@
 //-------------------------------------------------------------------------------
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [pushManager handlePushReceived:userInfo];
+    print(NSLog(@"didReceiveRemoteNotification: %@", userInfo))
 }
 //-------------------------------------------------------------------------------
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {

@@ -49,6 +49,37 @@ int         miLocalizeState     = nLocalizing;
     NSString  *stData           = [diRequest JSONRepresentation];
     return [self sendPost:([nURLServer stringByAppendingString:nURLCreateMessage]) forData:stData andMode:nPOST];
 }
+//-------------------------------------------------------------------------------
++ (NSDictionary *)sendCustomNotification {
+    print(NSLog(@"getAllTeams"))
+    NSMutableDictionary *diData = [[NSMutableDictionary alloc]init];
+    NSString    *stApplication  = @"F4C8C-8FF40";
+    NSString    *stAuth         = @"aDVeMECq0x8npwH7EzYdML8xzGNiJiN4wZf7c3drrhFUWAPrGYQCGROPkBihftilPHEcJOAzbt41O4vFJIuE";
+    
+    NSMutableDictionary *diNotifications = [[NSMutableDictionary alloc]init];
+    NSString    *stSendDate         = @"now";
+    NSString    *stIgnoreUserTime   = @"1";
+    NSString    *stContent          = @"Hello world";
+    [diNotifications setValue:stSendDate forKey:@"send_date"];
+    [diNotifications setValue:stIgnoreUserTime forKey:@"ignore_user_timezone"];
+    [diNotifications setValue:stContent forKey:@"content"];
+    
+    NSMutableDictionary    *diCustomData = [[NSMutableDictionary alloc]init];
+    [diCustomData setValue:stContent forKey:@"custom"];
+    
+    NSMutableArray *aNotification   = [[NSMutableArray alloc] init];
+    [aNotification addObject:diNotifications];
+    
+    [diData setValue:stApplication forKey:@"application"];
+    [diData setValue:stAuth forKey:@"auth"];
+    [diData setValue:aNotification forKey:@"notifications"];
+    
+    NSMutableDictionary *diRequest = [[NSMutableDictionary alloc]init];
+    [diRequest setValue:diData forKey:@"request"];
+    
+    NSString  *stData           = [diRequest JSONRepresentation];
+    return [self sendPost:([nURLServer stringByAppendingString:nURLCreateMessage]) forData:stData andMode:nPOST];
+}
 /**********************************************************************************************/
 #pragma mark - json common method
 /**********************************************************************************************/
