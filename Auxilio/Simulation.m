@@ -45,7 +45,7 @@ GMSCameraPosition   *camera;
     self.lblStatus.layer.borderWidth    = 1;
     self.lblStatus.clipsToBounds        = YES;
     self.lblStatus.layer.cornerRadius   = 8;
-    self.lblStatus.text                 = @"Simulated Status: Save";
+    self.lblStatus.text                 = @"Simulated Status: OK";
     
     self.vLoading.layer.borderColor     = [UIColor clearColor].CGColor;
     self.vLoading.layer.borderWidth     = 1;

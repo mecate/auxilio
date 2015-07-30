@@ -10,6 +10,8 @@
 #import "Declarations.h"
 #import <CoreLocation/CoreLocation.h>
 #import <Pushwoosh/PushNotificationManager.h>
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @interface Map : UIViewController<CLLocationManagerDelegate, PushNotificationDelegate>
 //Objects
@@ -21,10 +23,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblName;
 @property (strong, nonatomic) IBOutlet UILabel *lblTime;
 @property (strong, nonatomic) IBOutlet UILabel *lblStatus;
-
-
+@property (strong, nonatomic) IBOutlet UIView *vShare;
 
 //Actions
 - (IBAction)btnMenuPressed:(id)sender;
+- (IBAction)btnSharePressed:(id)sender;
 
 @end

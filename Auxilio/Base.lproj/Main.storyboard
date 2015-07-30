@@ -189,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="269" y="984"/>
         </scene>
-        <!--Simulation-->
+        <!--Sensor-->
         <scene sceneID="Raq-XF-eQV">
             <objects>
                 <viewController id="eht-EJ-qve" customClass="Simulation" sceneMemberID="viewController">
@@ -286,7 +286,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Simulation" id="Sa3-Ej-UWf"/>
+                    <tabBarItem key="tabBarItem" title="Sensor" id="Sa3-Ej-UWf"/>
                     <connections>
                         <outlet property="lblStatus" destination="M0W-NU-kM4" id="NhM-tM-ASJ"/>
                         <outlet property="vActivityIndicator" destination="FEb-6w-24s" id="pXt-qG-RbE"/>
@@ -379,6 +379,27 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="zlJ-02-tM6" userLabel="vShare">
+                                <rect key="frame" x="20" y="170" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="yIt-ij-rvw" userLabel="btnShare">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KohinoorDevanagari-Light" family="Kohinoor Devanagari" pointSize="15"/>
+                                        <state key="normal" title="Share">
+                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnOKPressed:" destination="eht-EJ-qve" eventType="touchUpInside" id="XI4-X7-y1M"/>
+                                            <action selector="btnSavePressed:" destination="uPR-V9-R88" eventType="touchUpInside" id="GNG-cl-3ng"/>
+                                            <action selector="btnSharePressed:" destination="e2a-IH-ecj" eventType="touchUpInside" id="ImW-Nj-neA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.32549019610000002" green="0.43529411759999997" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No info to show" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FBK-BJ-8BO" userLabel="lblNoInfo">
                                 <rect key="frame" x="60" y="269" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -397,6 +418,7 @@
                         <outlet property="lblStatus" destination="X8r-JH-MkB" id="Sjc-Tm-RPL"/>
                         <outlet property="lblTime" destination="gF6-wx-OmK" id="cLZ-aG-5u3"/>
                         <outlet property="vData" destination="JEb-CO-D7A" id="3kM-dp-u3B"/>
+                        <outlet property="vShare" destination="zlJ-02-tM6" id="y30-ku-HSm"/>
                         <outlet property="vUser" destination="lZ1-4F-lO5" id="QAu-lU-Ti2"/>
                     </connections>
                 </viewController>

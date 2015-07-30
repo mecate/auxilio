@@ -49,6 +49,8 @@
 		D1D324B71B6A908F004E026D /* Simulation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D324B61B6A908F004E026D /* Simulation.m */; };
 		D1D324BA1B6A9EB4004E026D /* userDummy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1D324B91B6A9EB4004E026D /* userDummy.jpg */; };
 		D1D324BE1B6ABE67004E026D /* Register.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D324BD1B6ABE67004E026D /* Register.m */; };
+		D1D324C01B6AC7E1004E026D /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D324BF1B6AC7E1004E026D /* Accounts.framework */; };
+		D1D324C21B6AC7E6004E026D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D324C11B6AC7E6004E026D /* Social.framework */; };
 		D1D853131B6924D700BFA824 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D853121B6924D700BFA824 /* main.m */; };
 		D1D853161B6924D700BFA824 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D853151B6924D700BFA824 /* AppDelegate.m */; };
 		D1D853191B6924D700BFA824 /* Auxilio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1D853171B6924D700BFA824 /* Auxilio.xcdatamodeld */; };
@@ -133,6 +135,8 @@
 		D1D324B91B6A9EB4004E026D /* userDummy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = userDummy.jpg; sourceTree = "<group>"; };
 		D1D324BC1B6ABE67004E026D /* Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Register.h; sourceTree = "<group>"; };
 		D1D324BD1B6ABE67004E026D /* Register.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Register.m; sourceTree = "<group>"; };
+		D1D324BF1B6AC7E1004E026D /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		D1D324C11B6AC7E6004E026D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		D1D8530D1B6924D700BFA824 /* Auxilio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Auxilio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D853111B6924D700BFA824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1D853121B6924D700BFA824 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D324C21B6AC7E6004E026D /* Social.framework in Frameworks */,
+				D1D324C01B6AC7E1004E026D /* Accounts.framework in Frameworks */,
 				2BBC4D060367BBA460FD1B93 /* libPods.a in Frameworks */,
 				D11F1DE41B6981E5008D3833 /* Pushwoosh.framework in Frameworks */,
 			);
@@ -455,6 +461,8 @@
 		DE8BFC33263DE966BFBDD628 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1D324C11B6AC7E6004E026D /* Social.framework */,
+				D1D324BF1B6AC7E1004E026D /* Accounts.framework */,
 				1F359EB86831146B83657201 /* libPods.a */,
 			);
 			name = Frameworks;

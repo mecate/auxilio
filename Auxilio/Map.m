@@ -54,6 +54,24 @@ GMSCameraPosition   *camera;
     [self presentViewController:vc animated:YES completion:nil];
 }
 //-------------------------------------------------------------------------------
+- (IBAction)btnSharePressed:(id)sender {
+    NSString                    *stMsg;
+    NSArray                     *aItems;
+    UIImage                     *imgShare;
+    UIActivityViewController    *aVC;
+    
+    imgShare    = [UIImage imageNamed:@"userDummy.jpg"];
+    NSString    *stGoogleMaps = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@,%@", mstNotificationLatitude, mstNotificationLongitude];
+    stMsg       = [@"VIA Auxilio: " stringByAppendingString:mstNotificationUserName];
+    stMsg       = [stMsg stringByAppendingString:@" needs HELP. Last known location: "];
+    stMsg       = [stMsg stringByAppendingString:stGoogleMaps];
+    aItems      = @[imgShare, stMsg];
+    aVC         = [[UIActivityViewController alloc] initWithActivityItems:aItems applicationActivities:nil];
+    aVC.excludedActivityTypes = [NSArray arrayWithObjects:UIActivityTypePrint, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop,UIActivityTypeSaveToCameraRoll, nil];
+    
+    [self presentViewController:aVC animated:YES completion:nil];
+}
+//-------------------------------------------------------------------------------
 -(void)didNotificationReceived {
     print(NSLog(@"didNotificationReceivedInMaps"))
     [self paintMap];
@@ -69,6 +87,7 @@ GMSCameraPosition   *camera;
         self.lblStatus.textColor = [UIColor redColor];
     }
     self.vUser.hidden       = NO;
+    self.vShare.hidden      = NO;
 }
 //-------------------------------------------------------------------------------
 - (void) onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification {
@@ -89,6 +108,7 @@ GMSCameraPosition   *camera;
     
     [self.view addSubview:mapView];
     [self.view bringSubviewToFront:self.vUser];
+    [self.view bringSubviewToFront:self.vShare];
     //[self.view bringSubviewToFront:self.lblCountry];
 }
 //------------------------------------------------------------
