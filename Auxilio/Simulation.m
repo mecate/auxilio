@@ -1,23 +1,25 @@
 //
-//  Map.m
+//  Simulation.m
 //  Auxilio
 //
-//  Created by Walter Gonzalez Domenzain on 29/07/15.
+//  Created by Walter Gonzalez Domenzain on 30/07/15.
 //  Copyright (c) 2015 Smartplace. All rights reserved.
 //
 
-#import "Map.h"
+#import "Simulation.h"
 #import "Start.h"
 @import GoogleMaps;
 
-@interface Map () {
+@interface Simulation ()
+{
 GMSMapView          *mapView;
 GMSMarker           *markerLocation;
 GMSCameraPosition   *camera;
+
 }
 @end
 
-@implementation Map
+@implementation Simulation
 /**********************************************************************************************/
 #pragma mark - Initialization methods
 /**********************************************************************************************/
@@ -25,8 +27,7 @@ GMSCameraPosition   *camera;
     [super viewDidLoad];
     [self initController];
     [self paintMap];
-    [self paintMarker];
-    //[self initPlaces];
+    //[self paintMarker];
 }
 //-------------------------------------------------------------------------------
 - (void)didReceiveMemoryWarning {
@@ -39,11 +40,32 @@ GMSCameraPosition   *camera;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotificationReceived) name:@"NotificationReceived" object:nil];
+    
+    self.vLoading.layer.borderColor  = [UIColor clearColor].CGColor;
+    self.vLoading.layer.borderWidth  = 1;
+    self.vLoading.clipsToBounds      = YES;
+    self.vLoading.layer.cornerRadius = 8;
 }
 //-------------------------------------------------------------------------------
 - (IBAction)btnMenuPressed:(id)sender {
     Start *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"Start"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+//-------------------------------------------------------------------------------
+- (IBAction)btnHelpPressed:(id)sender {
+    [self.vActivityIndicator startAnimating];
+    self.vLoading.hidden            = NO;
+    NSOperationQueue *queue         = [NSOperationQueue new];
+    NSInvocationOperation *opSend   = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(opSendHelp) object:nil];
+    [queue addOperation:opSend];
+}
+//-------------------------------------------------------------------------------
+- (IBAction)btnOKPressed:(id)sender {
+    [self.vActivityIndicator startAnimating];
+    self.vLoading.hidden            = NO;
+    NSOperationQueue *queue         = [NSOperationQueue new];
+    NSInvocationOperation *opSend   = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(opSendOK) object:nil];
+    [queue addOperation:opSend];
 }
 //-------------------------------------------------------------------------------
 -(void)didNotificationReceived {
@@ -64,8 +86,9 @@ GMSCameraPosition   *camera;
     mapView.myLocationEnabled   = YES;
     
     [self.view addSubview:mapView];
-    //[self.view bringSubviewToFront:self.lblName];
-    //[self.view bringSubviewToFront:self.lblCountry];
+    [self.view bringSubviewToFront:self.vHelp];
+    [self.view bringSubviewToFront:self.vOK];
+    [self.view bringSubviewToFront:self.vLoading];
 }
 //------------------------------------------------------------
 - (void) paintMarker {
@@ -75,22 +98,23 @@ GMSCameraPosition   *camera;
     marker.snippet          = @"Status: OK";
     marker.appearAnimation  = kGMSMarkerAnimationPop;
     marker.map = mapView;
-    
-    /*CLLocationCoordinate2D position;
-    NSLog(@"maPlacesTitle.count %d", (int)maPlacesTitle.count);
-    for (int i = 0; i<maPlacesTitle.count; i++)
-    {
-        CGFloat lat                     = (CGFloat)[maPlacesLat[i] floatValue];
-        CGFloat lng                     = (CGFloat)[maPlacesLng[i] floatValue];
-        NSLog(@"Marker lat %f, long %f", lat, lng);
-        position                        = CLLocationCoordinate2DMake(lat, lng);
-        markerLocation                  = [GMSMarker markerWithPosition:position];
-        markerLocation.icon             = [GMSMarker markerImageWithColor:[UIColor greenColor]];
-        markerLocation.title            = maPlacesTitle[i];
-        markerLocation.snippet          = maPlacesSnippet[i];
-        markerLocation.appearAnimation  = kGMSMarkerAnimationPop;
-        markerLocation.map              = mapView;
-    }*/
 }
-
+/**********************************************************************************************/
+#pragma mark - Operation methods
+/**********************************************************************************************/
+-(void)opSendHelp {
+    print(NSLog(@"opSendHelp"))
+    [Declarations sendCustomNotification:@" needs help!"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.vLoading.hidden = YES;
+    });
+}
+//------------------------------------------------------------
+-(void)opSendOK {
+    print(NSLog(@"opSendOK"))
+    [Declarations sendCustomNotification:@" is now save"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.vLoading.hidden = YES;
+    });
+}
 @end

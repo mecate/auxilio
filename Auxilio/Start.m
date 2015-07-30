@@ -35,6 +35,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotificationReceivedStart) name:@"NotificationReceivedStart" object:nil];
     
+    mstUserName                         = @"Walter Gonzalez";
+    
     //Location
     self.locationManager                    = [[CLLocationManager alloc] init];
     self.locationManager.delegate           = self;
@@ -43,17 +45,17 @@
     [self.locationManager  requestWhenInUseAuthorization];
     [self.locationManager startUpdatingLocation];
     
-    self.lblSettings.layer.borderColor  = [UIColor whiteColor].CGColor;
-    self.lblSettings.layer.borderWidth  = 1;
-    self.lblSettings.clipsToBounds      = YES;
-    self.lblSettings.layer.cornerRadius = 8;
+    self.lblSettings.layer.borderColor      = [UIColor whiteColor].CGColor;
+    self.lblSettings.layer.borderWidth      = 1;
+    self.lblSettings.clipsToBounds          = YES;
+    self.lblSettings.layer.cornerRadius     = 8;
     
-    self.lblStart.layer.borderColor     = [UIColor whiteColor].CGColor;
-    self.lblStart.layer.borderWidth     = 1;
-    self.lblStart.clipsToBounds         = YES;
-    self.lblStart.layer.cornerRadius    = 8;
+    self.lblStart.layer.borderColor         = [UIColor whiteColor].CGColor;
+    self.lblStart.layer.borderWidth         = 1;
+    self.lblStart.clipsToBounds             = YES;
+    self.lblStart.layer.cornerRadius        = 8;
     
-    NSDictionary *dict = [Declarations sendCustomNotification];
+    //NSDictionary *dict = [Declarations sendCustomNotification];
 }
 //-------------------------------------------------------------------------------
 -(void)didNotificationReceivedStart {

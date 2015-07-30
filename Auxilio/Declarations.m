@@ -14,10 +14,13 @@
 //Localization variables
 float       mlatitude;
 float       mlongitude;
-
 int         miLocalizeState     = nLocalizing;
 
+//Notification message
 NSString    *mstNotificationMessage;
+
+//User
+NSString    *mstUserName;
 
 @implementation Declarations
 
@@ -52,7 +55,7 @@ NSString    *mstNotificationMessage;
     return [self sendPost:([nURLServer stringByAppendingString:nURLCreateMessage]) forData:stData andMode:nPOST];
 }
 //-------------------------------------------------------------------------------
-+ (NSDictionary *)sendCustomNotification {
++ (NSDictionary *)sendCustomNotification:(NSString *)notificationMessage {
     print(NSLog(@"getAllTeams"))
     NSMutableDictionary *diData = [[NSMutableDictionary alloc]init];
     NSString    *stApplication  = @"F4C8C-8FF40";
@@ -63,8 +66,14 @@ NSString    *mstNotificationMessage;
     NSMutableDictionary *diCustomData       = [[NSMutableDictionary alloc]init];
     NSString    *stSendDate                 = @"now";
     NSString    *stIgnoreUserTime           = @"1";
-    NSString    *stContent                  = @"Hello world";
-    NSString *stCustomMsg                   = @"Hola walter";
+    NSString    *stContent                  = [mstUserName stringByAppendingString:notificationMessage];
+    NSString *stCustomMsg                   = [mstUserName stringByAppendingString:@","];
+    NSString *stLatitude                    = [NSString stringWithFormat:@"%f", mlatitude];
+    NSString *stLongitude                   = [NSString stringWithFormat:@"%f", mlongitude];
+    stCustomMsg                             = [stCustomMsg stringByAppendingString:stLatitude];
+    stCustomMsg                             = [stCustomMsg stringByAppendingString:@","];
+    stCustomMsg                             = [stCustomMsg stringByAppendingString:stLongitude];
+    
     [diCustomData setValue:stCustomMsg forKey:@"custom"];
     
     [diNotifications setValue:stSendDate forKey:@"send_date"];
