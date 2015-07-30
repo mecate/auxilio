@@ -17,6 +17,7 @@
 @property (strong, nonatomic)   CLLocation          *location;
 @property (strong, nonatomic) IBOutlet UIView *vLoading;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *vActivityIndicator;
+@property (strong, nonatomic) IBOutlet UILabel *lblStatus;
 
 @property (strong, nonatomic) IBOutlet UIView *vHelp;
 @property (strong, nonatomic) IBOutlet UIView *vOK;

@@ -41,10 +41,16 @@ GMSCameraPosition   *camera;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotificationReceived) name:@"NotificationReceived" object:nil];
     
-    self.vLoading.layer.borderColor  = [UIColor clearColor].CGColor;
-    self.vLoading.layer.borderWidth  = 1;
-    self.vLoading.clipsToBounds      = YES;
-    self.vLoading.layer.cornerRadius = 8;
+    self.lblStatus.layer.borderColor    = [UIColor clearColor].CGColor;
+    self.lblStatus.layer.borderWidth    = 1;
+    self.lblStatus.clipsToBounds        = YES;
+    self.lblStatus.layer.cornerRadius   = 8;
+    self.lblStatus.text                 = @"Simulated Status: Save";
+    
+    self.vLoading.layer.borderColor     = [UIColor clearColor].CGColor;
+    self.vLoading.layer.borderWidth     = 1;
+    self.vLoading.clipsToBounds         = YES;
+    self.vLoading.layer.cornerRadius    = 8;
 }
 //-------------------------------------------------------------------------------
 - (IBAction)btnMenuPressed:(id)sender {
@@ -55,6 +61,7 @@ GMSCameraPosition   *camera;
 - (IBAction)btnHelpPressed:(id)sender {
     [self.vActivityIndicator startAnimating];
     self.vLoading.hidden            = NO;
+    self.lblStatus.text             = @"Simulated Status: I need help";
     NSOperationQueue *queue         = [NSOperationQueue new];
     NSInvocationOperation *opSend   = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(opSendHelp) object:nil];
     [queue addOperation:opSend];
@@ -63,6 +70,7 @@ GMSCameraPosition   *camera;
 - (IBAction)btnOKPressed:(id)sender {
     [self.vActivityIndicator startAnimating];
     self.vLoading.hidden            = NO;
+    self.lblStatus.text             = @"Simulated Status: Save";
     NSOperationQueue *queue         = [NSOperationQueue new];
     NSInvocationOperation *opSend   = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(opSendOK) object:nil];
     [queue addOperation:opSend];
@@ -89,6 +97,7 @@ GMSCameraPosition   *camera;
     [self.view bringSubviewToFront:self.vHelp];
     [self.view bringSubviewToFront:self.vOK];
     [self.view bringSubviewToFront:self.vLoading];
+    [self.view bringSubviewToFront:self.lblStatus];
 }
 //------------------------------------------------------------
 - (void) paintMarker {
