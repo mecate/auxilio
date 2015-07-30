@@ -17,6 +17,8 @@ float       mlongitude;
 
 int         miLocalizeState     = nLocalizing;
 
+NSString    *mstNotificationMessage;
+
 @implementation Declarations
 
 /**********************************************************************************************/
@@ -56,17 +58,21 @@ int         miLocalizeState     = nLocalizing;
     NSString    *stApplication  = @"F4C8C-8FF40";
     NSString    *stAuth         = @"aDVeMECq0x8npwH7EzYdML8xzGNiJiN4wZf7c3drrhFUWAPrGYQCGROPkBihftilPHEcJOAzbt41O4vFJIuE";
     
-    NSMutableDictionary *diNotifications = [[NSMutableDictionary alloc]init];
-    NSString    *stSendDate         = @"now";
-    NSString    *stIgnoreUserTime   = @"1";
-    NSString    *stContent          = @"Hello world";
+    //Create json object
+    NSMutableDictionary *diNotifications    = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary *diCustomData       = [[NSMutableDictionary alloc]init];
+    NSString    *stSendDate                 = @"now";
+    NSString    *stIgnoreUserTime           = @"1";
+    NSString    *stContent                  = @"Hello world";
+    NSString *stCustomMsg                   = @"Hola walter";
+    [diCustomData setValue:stCustomMsg forKey:@"custom"];
+    
     [diNotifications setValue:stSendDate forKey:@"send_date"];
     [diNotifications setValue:stIgnoreUserTime forKey:@"ignore_user_timezone"];
     [diNotifications setValue:stContent forKey:@"content"];
+    [diNotifications setValue:diCustomData forKey:@"data"];
     
-    NSMutableDictionary    *diCustomData = [[NSMutableDictionary alloc]init];
-    [diCustomData setValue:stContent forKey:@"custom"];
-    
+    //Transform json object to an array
     NSMutableArray *aNotification   = [[NSMutableArray alloc] init];
     [aNotification addObject:diNotifications];
     

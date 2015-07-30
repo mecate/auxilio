@@ -38,11 +38,21 @@ GMSCameraPosition   *camera;
 - (void)initController {
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotificationReceived) name:@"NotificationReceived" object:nil];
 }
-
+//-------------------------------------------------------------------------------
 - (IBAction)btnMenuPressed:(id)sender {
     Start *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"Start"];
     [self presentViewController:vc animated:YES completion:nil];
+}
+//-------------------------------------------------------------------------------
+-(void)didNotificationReceived {
+    print(NSLog(@"didNotificationReceivedInMaps"))
+}
+//-------------------------------------------------------------------------------
+- (void) onPushAccepted:(PushNotificationManager *)pushManager withNotification:(NSDictionary *)pushNotification {
+    print(NSLog(@"onPushAccepted"))
 }
 /**********************************************************************************************/
 #pragma mark - Maps methods

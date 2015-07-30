@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Declarations.h"
 #import <CoreLocation/CoreLocation.h>
+#import <Pushwoosh/PushNotificationManager.h>
 
-@interface Map : UIViewController<CLLocationManagerDelegate>
+@interface Map : UIViewController<CLLocationManagerDelegate, PushNotificationDelegate>
 //Objects
 @property (strong, nonatomic)   CLLocationManager   *locationManager;
 @property (strong, nonatomic)   CLLocation          *location;

@@ -33,6 +33,8 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotificationReceivedStart) name:@"NotificationReceivedStart" object:nil];
+    
     //Location
     self.locationManager                    = [[CLLocationManager alloc] init];
     self.locationManager.delegate           = self;
@@ -51,7 +53,13 @@
     self.lblStart.clipsToBounds         = YES;
     self.lblStart.layer.cornerRadius    = 8;
     
-    NSDictionary *dict = [Declarations sendNotification];
+    NSDictionary *dict = [Declarations sendCustomNotification];
+}
+//-------------------------------------------------------------------------------
+-(void)didNotificationReceivedStart {
+    print(NSLog(@"didNotificationReceivedStart"))
+    UITabBarController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"TabBarMap"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 /**********************************************************************************************/
 #pragma mark - Video method
@@ -77,6 +85,7 @@
 #pragma mark - Action methods
 /**********************************************************************************************/
 - (IBAction)btnSettingsPressed:(id)sender {
+    
 }
 //-------------------------------------------------------------------------------
 - (IBAction)btnStartPressed:(id)sender {

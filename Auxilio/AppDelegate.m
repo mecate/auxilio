@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 @import GoogleMaps;
 #import <Pushwoosh/PushNotificationManager.h>
+#import "Map.h"
 
 #define LOCATIONS_FILE @"PWLocationTracking"
 #define LOCATIONS_FILE_TYPE @"log"
@@ -32,6 +33,7 @@
         [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
         
         [application registerForRemoteNotifications];
+        
     } else
     {
         // use registerForRemoteNotifications
@@ -175,8 +177,24 @@
 }
 //-------------------------------------------------------------------------------
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [pushManager handlePushReceived:userInfo];
     print(NSLog(@"didReceiveRemoteNotification: %@", userInfo))
+    [pushManager handlePushReceived:userInfo];
+    mstNotificationMessage = [self parseNotificationMessage:userInfo];
+    print(NSLog(@"mstNotificationMessage: %@", mstNotificationMessage))
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotificationReceived" object:nil userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NotificationReceivedStart" object:nil userInfo:nil];
+}
+//-------------------------------------------------------------------------------
+- (NSString *) parseNotificationMessage: (NSDictionary*)userInfo {
+    NSDictionary *diCustom      = [userInfo valueForKey: @"u"];
+    NSString *stMessage         = [NSString stringWithFormat:@"%@", diCustom];
+    
+    NSRange r1                  = [stMessage rangeOfString:@"{\"custom\":\""];
+    NSRange r2                  = [stMessage rangeOfString:@"\"}"];
+    NSRange rSub                = NSMakeRange(r1.location + r1.length, r2.location - r1.location - r1.length);
+    NSString *stParsedMessage   = [stMessage substringWithRange:rSub];
+    print(NSLog(@"stParsedMessage: %@", stParsedMessage))
+    return stParsedMessage;
 }
 //-------------------------------------------------------------------------------
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
