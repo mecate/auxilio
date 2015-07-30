@@ -61,7 +61,7 @@ GMSCameraPosition   *camera;
 - (IBAction)btnHelpPressed:(id)sender {
     [self.vActivityIndicator startAnimating];
     self.vLoading.hidden            = NO;
-    self.lblStatus.text             = @"Simulated Status: I need help";
+    self.lblStatus.text             = @"Simulated Status: HELP";
     NSOperationQueue *queue         = [NSOperationQueue new];
     NSInvocationOperation *opSend   = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(opSendHelp) object:nil];
     [queue addOperation:opSend];
@@ -70,7 +70,7 @@ GMSCameraPosition   *camera;
 - (IBAction)btnOKPressed:(id)sender {
     [self.vActivityIndicator startAnimating];
     self.vLoading.hidden            = NO;
-    self.lblStatus.text             = @"Simulated Status: Save";
+    self.lblStatus.text             = @"Simulated Status: OK";
     NSOperationQueue *queue         = [NSOperationQueue new];
     NSInvocationOperation *opSend   = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(opSendOK) object:nil];
     [queue addOperation:opSend];
@@ -121,7 +121,7 @@ GMSCameraPosition   *camera;
 //------------------------------------------------------------
 -(void)opSendOK {
     print(NSLog(@"opSendOK"))
-    [Declarations sendCustomNotification:@" is now save" andStatus:@"OK"];
+    [Declarations sendCustomNotification:@" is now safe" andStatus:@"OK"];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.vLoading.hidden = YES;
     });

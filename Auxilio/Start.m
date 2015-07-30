@@ -8,6 +8,7 @@
 
 #import "Start.h"
 #import "Map.h"
+#import "Register.h"
 
 @interface Start ()
 
@@ -34,9 +35,7 @@
     //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didNotificationReceivedStart) name:@"NotificationReceivedStart" object:nil];
-    
-    mstUserName                         = @"Walter Gonzalez";
-    
+        
     //Location
     self.locationManager                    = [[CLLocationManager alloc] init];
     self.locationManager.delegate           = self;
@@ -87,7 +86,8 @@
 #pragma mark - Action methods
 /**********************************************************************************************/
 - (IBAction)btnSettingsPressed:(id)sender {
-    
+    Register *vc       = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"Register"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 //-------------------------------------------------------------------------------
 - (IBAction)btnStartPressed:(id)sender {
